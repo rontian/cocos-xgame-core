@@ -1,4 +1,3 @@
-import { EventManager } from './EventManager';
 /*************************************************
 /* @author : rontian
 /* @email  : i@ronpad.com
@@ -12,7 +11,6 @@ import { clazz } from '../decorators/clazz';
 import { facade } from '../decorators/facade';
 import { IDisposableGroup } from '../interfaces/IDisposableGroup';
 import { Event } from './Event';
-import { IEventObserve } from './EventStruct';
 import { IEventAttribute } from './IEventAttribute';
 import { IEventDispatcher } from './IEventDispatcher';
 

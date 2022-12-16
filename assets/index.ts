@@ -1,4 +1,4 @@
-export { XGame } from './XGame';
+export { XGame, that } from './XGame';
 //binding
 export { Binding } from './binding/Binding';
 export { PropertyEvent } from './binding/PropertyEvent';
@@ -18,7 +18,7 @@ export { XObject, generateHashCode } from './core/XObject';
 //date
 export { IDateTimeManager } from './date/IDateTimeManager';
 export { DateTimeManager } from './date/DateTimeManager';
-export { IDateInfo } from './date/DataStructs';
+export type { IDateInfo } from './date/DataStructs';
 //decorators
 export { attributes } from './decorators/attributes';
 export { clazz } from './decorators/clazz';
@@ -80,14 +80,14 @@ export { SignalAny } from './signals/SignalAny';
 export { SignalBase } from './signals/SignalBase';
 //timeline
 export { TimelineManager } from './timeline/TimelineManager';
-export { IAnimatable } from './timeline/interfaces/IAnimatable';
+export type { IAnimatable } from './timeline/interfaces/IAnimatable';
 export { ITimelineManager } from './timeline/interfaces/ITimelineManager';
 export { Timeline } from './timeline/core/Timeline';
 //tween
 export { Ease } from './tween/Ease';
 export { Tween } from './tween/Tween';
 //types
-export { TClass } from './types/TClass';
+export type { TClass } from './types/TClass';
 //utils
 export { ArrayUtils } from './utils/ArrayUtils';
 export { AsyncLock } from './utils/AsyncLock';

@@ -6,6 +6,7 @@
     "main": "./dist/main.js",
     "devDependencies": {
         "@types/node": "^16.0.1",
+        "reflect-metadata": "^0.1.13",
         "typescript": "^4.3.4"
     },
     "author": "rontian",
@@ -21,8 +22,5 @@
                 "readonly": true
             }
         }
-    },
-    "dependencies": {
-        "reflect-metadata": "^0.1.13"
     }
 }
