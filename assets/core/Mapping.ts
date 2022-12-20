@@ -6,6 +6,7 @@
 
 import { clazz } from '../decorators/clazz';
 import { IMapping } from '../interfaces/IMapping';
+import { createInstance } from '../utils/createInstance';
 import { XObject } from './XObject';
 
 @clazz('Mapping')
@@ -44,14 +45,14 @@ export class Mapping extends XObject implements IMapping {
     public create(named?: string): any {
         if (!named) {
             if (!this.instance) {
-                this.instance = new this.service();
+                this.instance = createInstance(this.service);
             }
             return this.instance;
         }
         if (this.namedInstances.has(named)) {
             return this.namedInstances.get(named);
         }
-        const instance = new this.service();
+        const instance = createInstance(this.service);
         this.namedInstances.set(named, instance);
         return instance;
     }
