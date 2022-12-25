@@ -41,6 +41,7 @@ export { IEventAttribute } from './event/IEventAttribute';
 export { IEventManager } from './event/IEventManager';
 //interfaces
 export { IAttribute } from './interfaces/IAttribute';
+export { ICancellation } from './interfaces/ICancellation';
 export { IDisposable } from './interfaces/IDisposable';
 export { IDisposableGroup } from './interfaces/IDisposableGroup';
 export { IInjectableAttribute } from './interfaces/IInjectableAttribute';

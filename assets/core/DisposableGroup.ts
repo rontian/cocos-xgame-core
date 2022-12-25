@@ -44,47 +44,53 @@ export class DisposableGroup extends Locker implements IDisposable, IDisposableG
         return this;
     }
 
-    public addEventListener(...args: any[]): void {
+    public addEventListener(...args: any[]): IDisposable {
         const self: DisposableGroup = this;
         const manager = EventManager.Instance();
         const addEventListener: Function = manager.addEventListener;
         const listener: EventListener = addEventListener.apply(manager, args);
         self.register(listener);
+        return listener;
     }
 
-    public once(...args: any[]): void {
+    public once(...args: any[]): IDisposable {
         const self: DisposableGroup = this;
         const manager = EventManager.Instance();
         const once: Function = manager.once;
         const listener: EventListener = once.apply(manager, args);
         self.register(listener);
+        return listener;
     }
 
-    public registerPreUpdate(action: () => void, thisObject?: any, order?: number): void {
+    public registerPreUpdate(action: () => void, thisObject?: any, order?: number): IDisposable {
         const self: DisposableGroup = this;
         const manager = SchedulerManager.Instance();
         const scheduler = manager.registerPreUpdate(action, thisObject, order);
         self.register(scheduler);
+        return scheduler;
     }
 
-    public registerUpdate(action: () => void, thisObject?: any, order?: number): void {
+    public registerUpdate(action: () => void, thisObject?: any, order?: number): IDisposable {
         const self: DisposableGroup = this;
         const manager = SchedulerManager.Instance();
         const scheduler = manager.registerUpdate(action, thisObject, order);
         self.register(scheduler);
+        return scheduler;
     }
 
-    public registerPostUpdate(action: () => void, thisObject?: any, order?: number): void {
+    public registerPostUpdate(action: () => void, thisObject?: any, order?: number): IDisposable {
         const self: DisposableGroup = this;
         const manager = SchedulerManager.Instance();
         const scheduler = manager.registerPostUpdate(action, thisObject, order);
         self.register(scheduler);
+        return scheduler;
     }
 
-    public registerTimer(timeout: number, action: () => void, thisObject?: any, times?: number, order?: number): void {
+    public registerTimer(timeout: number, action: () => void, thisObject?: any, times?: number, order?: number): IDisposable {
         const self: DisposableGroup = this;
         const manager = SchedulerManager.Instance();
         const scheduler = manager.registerTimer(timeout, action, thisObject, times, order);
         self.register(scheduler);
+        return scheduler;
     }
 }

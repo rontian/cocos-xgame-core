@@ -34,7 +34,7 @@ export class Scheduler extends XObject implements ICancellation {
     }
 
     public cancel(): void {
-        this.manager.$remove(this.schedulerType, this.hashCode);
+        this.manager?.$remove(this.schedulerType, this.hashCode);
     }
 
     public setTimeout(timeout: number, times = 0): void {
@@ -64,18 +64,16 @@ export class Scheduler extends XObject implements ICancellation {
                 if (this.mode == TimerMode.Times) {
                     this.times--;
                     if (this.times <= 0) {
-                        this.unregister();
+                        this.cancel();
                     }
                 }
             }
         }
     }
 
-    public unregister(): void {
-        this.manager.removeUpdate(this.hashCode);
-    }
-
     public dispose(): void {
+        this.cancel();
+        this.manager = undefined;
         this.action = undefined;
         this.thisObject = undefined;
     }
